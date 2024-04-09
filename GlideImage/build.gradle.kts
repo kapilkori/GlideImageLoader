@@ -52,7 +52,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "com.github.kapilkori"
             artifactId = "GlideImageGenerator"
-            version = "0.0.3"
+            version = "0.0.5"
 
             afterEvaluate {
                 from(components["release"])
