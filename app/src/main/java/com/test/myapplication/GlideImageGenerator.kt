@@ -7,6 +7,8 @@ import com.bumptech.glide.Glide
 object GlideImageGenerator {
 
     fun loadImage(context: Context, url: String, viewId: ImageView) {
-
+        Glide.with(context)
+            .load(url)
+            .into(viewId)
     }
 }
