@@ -51,7 +51,7 @@ publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "com.github.kapilkori"
-            artifactId = "glide-image-generator"
+            artifactId = "GlideImageGenerator"
             version = "0.0.3"
 
             afterEvaluate {
