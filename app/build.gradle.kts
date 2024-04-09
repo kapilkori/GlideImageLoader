@@ -1,6 +1,7 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("maven-publish")
 }
 
 android {
@@ -8,11 +9,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.test.myapplication"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,4 +45,18 @@ dependencies {
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.kapilkori"
+            artifactId = "glide-image-generator"
+            version = "0.0.3"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }
